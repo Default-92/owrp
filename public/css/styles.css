@@ -11,19 +11,19 @@ header {
     color: white;
     padding: 1rem;
     width: 100%;
-    text-align: center;
+    text-align: left;
     position: fixed;
     top: 0;
     z-index: 1000;
 }
 
 img{
-width: 500px;
+width: 250px;
 }
 
 img{
-max-width: 20%;
-max-height: 20%
+max-width: 50%;
+max-height: 50%
 }
 
 nav.sidebar {
@@ -53,7 +53,7 @@ nav.sidebar ul li a {
 }
 
 nav.sidebar ul li a:hover {
-    background-color: #d72222;
+    background-color: #c94444;
 }
 
 main {

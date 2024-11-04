@@ -1,5 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Segoe UI, sans-serif;
+    color: #20163f;
+    text-position:
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
@@ -71,6 +73,17 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.box {
+  display: grid;
+  width: 540px;
+  grid-template-columns: 120px 120px 120px;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.box :first-child {
+  align-self: center;
 
 .blog-post {
     background-color: #fff;

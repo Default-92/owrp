@@ -75,23 +75,34 @@ footer {
 }
 
 .box {
+  position: relative; /* or absolute */
   display: grid;
   width: 540px;
   grid-template-columns: 120px 120px 120px;
   align-items: start;
-  justify-content: space-between;
+  justify-content: center;
+  margin:0 auto;
   margin-top: 0px; 
-  margin-left:300px;
+  margin-left:200px;
+  z-index: 5;
+}
+
+.box div {
+    background: linear-gradient(135deg, #ff7e5f, #c91f1f); /* Gradient color */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for depth */
+    transition: background 0.3s ease; /* Smooth transition */
+}
+
+.box div:hover {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* New gradient color on hover */
 }
 
 .body-text {
     position: relative; /* or absolute, depending on your layout */
     z-index: 10;
-}
-
-.box {
-    position: relative; /* or absolute */
-    z-index: 5;
 }
 
 .blog-post {

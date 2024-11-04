@@ -17,6 +17,15 @@ header {
     z-index: 1000;
 }
 
+img{
+width: 500px;
+}
+
+img{
+max-width: 20%;
+max-height: 20%
+}
+
 nav.sidebar {
     background-color: #0036b1;
     color: white;

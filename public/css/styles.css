@@ -18,7 +18,7 @@ header {
 }
 
 nav.sidebar {
-    background-color: #333;
+    background-color: #0036b1;
     color: white;
     width: 200px;
     position: fixed;
@@ -54,7 +54,7 @@ main {
 }
 
 footer {
-    background-color: #333;
+    background-color: #003cc5;
     color: white;
     text-align: center;
     padding: 1rem;

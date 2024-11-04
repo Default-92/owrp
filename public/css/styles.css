@@ -6,6 +6,7 @@ body {
     padding: 0;
     background-color: #f0f0f0;
     display: flex;
+    margin-top: 150px; /* Adjust this value based on your header's height */
 }
 
 header {
@@ -80,10 +81,9 @@ footer {
   grid-template-columns: 120px 120px 120px;
   align-items: start;
   justify-content: space-between;
+  margin-top: 300px; /* Adjust this value based on your header's height */
+  margin-left:100px;
 }
-
-.box :first-child {
-  align-self: center;
 
 .blog-post {
     background-color: #fff;
@@ -105,3 +105,4 @@ footer {
 .post-content {
     margin-top: 1rem;
 }
+

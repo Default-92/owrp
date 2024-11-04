@@ -1,11 +1,10 @@
 body {
     font-family: Segoe UI, sans-serif;
     color: #20163f;
-    text-position:
+    text-align: left;
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
-    display: flex;
     margin-top: 150px; /* Adjust this value based on your header's height */
 }
 
@@ -81,13 +80,23 @@ footer {
   grid-template-columns: 120px 120px 120px;
   align-items: start;
   justify-content: space-between;
-  margin-top: 300px; /* Adjust this value based on your header's height */
-  margin-left:100px;
+  margin-top: 0px; 
+  margin-left:300px;
+}
+
+.body-text {
+    position: relative; /* or absolute, depending on your layout */
+    z-index: 10;
+}
+
+.box {
+    position: relative; /* or absolute */
+    z-index: 5;
 }
 
 .blog-post {
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     margin-bottom: 1rem;
     padding: 1rem;
     border-radius: 4px;

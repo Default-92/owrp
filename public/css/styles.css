@@ -50,12 +50,17 @@ nav.sidebar ul li {
 nav.sidebar ul li a {
     color: white;
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 0.5rem 1rem;
 }
 
 nav.sidebar ul li a:hover {
     background-color: #c94444;
+}
+
+nav.sidebar ul li a i {
+    margin-right: 20px; /* Adjust the spacing as needed */
 }
 
 main {
@@ -128,4 +133,5 @@ footer {
 .post-content {
     margin-top: 1rem;
 }
+
 

@@ -131,10 +131,6 @@ footer {
     background: linear-gradient(135deg, #6a11cb, #2575fc); /* New gradient color on hover */
 }
 
-.box div br {
-    display: none; /* Hide the <br> tags if they are causing extra space */
-}
-
 .box div i {
     font-size: 1.5em; /* 50% bigger than the default size */
 }

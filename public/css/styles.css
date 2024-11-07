@@ -92,16 +92,16 @@ nav.sidebar ul li a span {
 }
 
 .content-wrapper {
-    margin-left: 200px; /* Same width as the sidebar */
+    margin-left: 235px; /* Same width as the sidebar */
+    margin-top: 100px;
     padding: 2rem;
-    padding-top: 3px; /* Space for the fixed header */
+    padding-top: 0px; /* Space for the fixed header */
     border: 1px solid #ccc; /* Add a subtle border around the main text and boxes */
-    border-radius: 5px; /* Optional: Add rounded corners */
 }
 
 main {
-    margin-left: 200px; /* Same width as the sidebar */
-    padding: 2rem;
+    margin-left: 0px; /* Same width as the sidebar */
+    padding: 0rem;
     padding-top: 10px; /* Space for the fixed header */
 }
 
@@ -125,14 +125,15 @@ footer {
     font-family: Segoe UI, sans-serif;
     text-align: center;
     position: relative; /* or absolute */
-    display: grid;
-    width: 845px;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    width: 380px;
     grid-template-columns: 200px 200px 200px 200px;
     grid-template-rows: 180px 200px;
     align-items: start;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 0px;
+    margin-top: 25px;
     margin-left: 200px;
     z-index: 5;
 }
@@ -185,4 +186,17 @@ footer {
 
 .post-content {
     margin-top: 1rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .box {
+        flex-direction: column; /* Stack boxes vertically on small screens */
+    }
+}
+
+@media (min-width: 769px) {
+    .box {
+        flex-direction: row; /* Arrange boxes horizontally on larger screens */
+    }
 }

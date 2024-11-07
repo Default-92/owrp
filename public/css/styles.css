@@ -13,21 +13,26 @@ header {
     color: white;
     height: 65px;
     width: 100%;
-    text-align: left;
     position: fixed;
     top: 0;
     z-index: 1000;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between items */
+    padding: 0 20px; /* Add some padding for spacing */
 }
 
-img {
-    width: 120px;
-    position: fixed;
-    top: 0px;
-}
-
-img {
+header img {
+    width: 0px;
     max-width: 50%;
     max-height: 50%;
+}
+
+header h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 1.5rem; /* Adjust font size as needed */
+    flex-grow: 1; /* Allow the text to grow and center */
+    text-align: left; /* Center text horizontally */
 }
 
 nav.sidebar {
@@ -35,7 +40,7 @@ nav.sidebar {
     color: white;
     width: 200px;
     position: fixed;
-    top: 60px; /* Just below the header */
+    top: 65px; /* Just below the header */
     bottom: 0;
     overflow: auto;
 }
@@ -73,7 +78,7 @@ nav.sidebar ul li a span {
 
 .sidebar-text {
     background-color: rgba(128, 128, 128, 0.5); /* Grey shade with opacity */
-    color: Black;
+    color: black;
     font-size: 0.9rem; /* Smaller font size */
     padding: 0px 20px; /* 0px above and below, 20px left and right */
     border-radius: 0px;
@@ -140,7 +145,6 @@ footer {
 .box div b {
     display: block; /* Ensure the bold text is on a new line */
 }
-
 
 .body-text {
     position: relative; /* or absolute, depending on your layout */

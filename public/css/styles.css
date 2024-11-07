@@ -116,8 +116,8 @@ footer {
 }
 
 .box div {
-    background: linear-gradient(135deg, #ff7e5f, #c91f1f); /* Gradient color */
-    border-radius: 15px; /* Rounded corners */
+    border: 1px solid #000;
+    border-radius: 0px; /* Rounded corners */
     padding: 20px;
     margin: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for depth */

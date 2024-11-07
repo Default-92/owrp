@@ -11,7 +11,7 @@ body {
 header {
     background-color: #333;
     color: white;
-    height: 150px;
+    height: 65px;
     width: 100%;
     text-align: left;
     position: fixed;
@@ -20,7 +20,7 @@ header {
 }
 
 img {
-    width: 250px;
+    width: 120px;
     position: fixed;
     top: 0px;
 }
@@ -35,7 +35,7 @@ nav.sidebar {
     color: white;
     width: 200px;
     position: fixed;
-    top: 150px; /* Just below the header */
+    top: 60px; /* Just below the header */
     bottom: 0;
     overflow: auto;
 }

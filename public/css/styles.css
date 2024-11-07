@@ -45,7 +45,7 @@ nav.sidebar ul {
 }
 
 nav.sidebar ul li {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
 }
 
 nav.sidebar ul li a {
@@ -74,7 +74,6 @@ nav.sidebar ul li a span {
     color: Black;
     font-size: 0.9rem; /* Smaller font size */
     padding: 0px 20px; /* 0px above and below, 20px left and right */
-    margin: 0px 0px; /* Adjust margin to control the space around the text block */
     border-radius: 0px;
     display: flex;
     align-items: center;
@@ -107,7 +106,7 @@ footer {
     display: grid;
     width: 700px;
     grid-template-columns: 160px 160px 160px 160px;
-    grid-template-rows: 120px 160px;
+    grid-template-rows: 150px 160px;
     align-items: start;
     justify-content: center;
     margin: 0 auto;
@@ -122,12 +121,26 @@ footer {
     padding: 20px;
     margin: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for depth */
-    transition: background 0.3s ease; /* Smooth transition */
+    transition: background 0.5s ease; /* Smooth transition */
+    text-align: center; /* Center align the content */
 }
 
 .box div:hover {
     background: linear-gradient(135deg, #6a11cb, #2575fc); /* New gradient color on hover */
 }
+
+.box div br {
+    display: none; /* Hide the <br> tags if they are causing extra space */
+}
+
+.box div i {
+    font-size: 1.5em; /* 50% bigger than the default size */
+}
+
+.box div b {
+    display: block; /* Ensure the bold text is on a new line */
+}
+
 
 .body-text {
     position: relative; /* or absolute, depending on your layout */

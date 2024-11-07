@@ -26,8 +26,15 @@ header img {
     width: 400px;
     max-width: 50%;
     max-height: 50%;
+    align: left;
 }
 
+header h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 1.5rem; /* Adjust font size as needed */
+    flex-grow: 1; /* Allow the text to grow and center */
+    text-align: center; /* Center text horizontally */
+}
 
 nav.sidebar {
     background-color: #0036b1;
@@ -129,7 +136,7 @@ footer {
 }
 
 .box div:hover {
-    background: linear-gradient(135deg, #6a11cb, #2575fc); /* New gradient color on hover */
+    text-decoration-line: underline; /* Underline on hover */
 }
 
 .box div i {

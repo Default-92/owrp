@@ -41,6 +41,7 @@ nav.sidebar {
 nav.sidebar ul {
     list-style: none;
     padding: 0;
+    margin-top: 5px; /* Adjust this value to control the space between the text block and the menu */
 }
 
 nav.sidebar ul li {
@@ -70,21 +71,17 @@ nav.sidebar ul li a span {
 
 .sidebar-text {
     background-color: rgba(128, 128, 128, 0.5); /* Grey shade with opacity */
-    color: white;
+    color: Black;
     font-size: 0.9rem; /* Smaller font size */
-    padding: 3px 15px; /* 3px above and below, 10px left and right */
-    margin: 0px; /* Adjust margin if needed */
-    border-radius: 5px;
+    padding: 0px 20px; /* 0px above and below, 20px left and right */
+    margin: 0px 0px; /* Adjust margin to control the space around the text block */
+    border-radius: 0px;
     display: flex;
     align-items: center;
 }
 
 .sidebar-text i {
     margin-right: 10px; /* Space between the icon and the text */
-}
-
-nav.sidebar ul {
-    padding-top: 0px; /* Add some space between the text block and the menu */
 }
 
 main {

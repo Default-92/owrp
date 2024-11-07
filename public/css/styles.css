@@ -104,9 +104,9 @@ footer {
     text-align: center;
     position: relative; /* or absolute */
     display: grid;
-    width: 700px;
-    grid-template-columns: 160px 160px 160px 160px;
-    grid-template-rows: 150px 160px;
+    width: 845px;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-rows: 180px 200px;
     align-items: start;
     justify-content: center;
     margin: 0 auto;
@@ -116,8 +116,8 @@ footer {
 }
 
 .box div {
-    border: 1px solid #000;
-    border-radius: 0px; /* Rounded corners */
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 0px; /* Optional for rounded corners - looks a bit 2010 */
     padding: 20px;
     margin: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for depth */

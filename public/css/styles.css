@@ -91,9 +91,18 @@ nav.sidebar ul li a span {
     margin-right: 10px; /* Space between the icon and the text */
 }
 
+.content-wrapper {
+    margin-left: 200px; /* Same width as the sidebar */
+    padding: 2rem;
+    padding-top: 3px; /* Space for the fixed header */
+    border: 1px solid #ccc; /* Add a subtle border around the main text and boxes */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
 main {
     margin-left: 200px; /* Same width as the sidebar */
     padding: 2rem;
+    padding-top: 10px; /* Space for the fixed header */
 }
 
 main h2 {

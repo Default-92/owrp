@@ -93,6 +93,7 @@ nav.sidebar ul li a span {
 
 .content-wrapper {
     margin-left: 235px; /* Same width as the sidebar */
+    margin-right: 25px;
     margin-top: 100px;
     padding: 2rem;
     padding-top: 0px; /* Space for the fixed header */
@@ -125,8 +126,7 @@ footer {
     font-family: Segoe UI, sans-serif;
     text-align: center;
     position: relative; /* or absolute */
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
+    display: grid;
     width: 380px;
     grid-template-columns: 200px 200px 200px 200px;
     grid-template-rows: 180px 200px;
@@ -188,15 +188,7 @@ footer {
     margin-top: 1rem;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    .box {
-        flex-direction: column; /* Stack boxes vertically on small screens */
-    }
-}
-
-@media (min-width: 769px) {
-    .box {
-        flex-direction: row; /* Arrange boxes horizontally on larger screens */
-    }
+a:link, a:visited {
+    color: black; /* or whatever color you want the links to be */
+    text-decoration: none; /* Optional: to remove the underline */
 }

@@ -11,7 +11,7 @@ body {
 header {
     background-color: #333;
     color: white;
-    height:180px;
+    height: 180px;
     width: 100%;
     text-align: left;
     position: fixed;
@@ -19,13 +19,13 @@ header {
     z-index: 1000;
 }
 
-img{
-width: 250px;
+img {
+    width: 250px;
 }
 
-img{
-max-width: 50%;
-max-height: 50%
+img {
+    max-width: 50%;
+    max-height: 50%;
 }
 
 nav.sidebar {
@@ -72,9 +72,15 @@ nav.sidebar ul li a span {
     background-color: rgba(128, 128, 128, 0.5); /* Grey shade with opacity */
     color: white;
     font-size: 0.9rem; /* Smaller font size */
-    padding: 10px;
-    margin: 0px;
-    border-radius: 0px;
+    padding: 3px 15px; /* 3px above and below, 10px left and right */
+    margin: 0px; /* Adjust margin if needed */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-text i {
+    margin-right: 10px; /* Space between the icon and the text */
 }
 
 nav.sidebar ul {
@@ -98,19 +104,19 @@ footer {
 }
 
 .box {
-  font-family: Segoe UI, sans-serif;
-  text-align:center;
-  position: relative; /* or absolute */
-  display: grid;
-  width: 700px;
-  grid-template-columns: 160px 160px 160px 160px;
-  grid-template-rows: 120px 160px;
-  align-items: start;
-  justify-content: center;
-  margin: 0 auto;
-  margin-top: 0px; 
-  margin-left:200px;
-  z-index: 5;
+    font-family: Segoe UI, sans-serif;
+    text-align: center;
+    position: relative; /* or absolute */
+    display: grid;
+    width: 700px;
+    grid-template-columns: 160px 160px 160px 160px;
+    grid-template-rows: 120px 160px;
+    align-items: start;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-left: 200px;
+    z-index: 5;
 }
 
 .box div {
@@ -151,5 +157,3 @@ footer {
 .post-content {
     margin-top: 1rem;
 }
-
-

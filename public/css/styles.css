@@ -170,8 +170,8 @@ footer {
     text-align: center;
     position: relative; /* or absolute */
     display: grid;
-    width: 10px;
-    grid-template-columns: 200px 230px ;
+    width: 410px;
+    grid-template-columns: 200px 230px 200px 200px;
     grid-template-rows: 180px 200px;
     align-items: start;
     justify-content: center;
@@ -204,47 +204,6 @@ footer {
 .box2 div b {
     display: block; /* Ensure the bold text is on a new line */
 }
-
-.box3 {
-    font-family: Segoe UI, sans-serif;
-    text-align: center;
-    position: relative; /* or absolute */
-    display: grid;
-    width: 1500px;
-    grid-template-columns: 200px 230px ;
-    grid-template-rows: 180px 200px;
-    align-items: start;
-    justify-content: center;
-    margin: 0 auto;
-    margin-top: 25px;
-    margin-left: 200px;
-    z-index: 5;
-}
-
-.box3 div {
-    border: 1px solid rgba(128, 128, 128, 0.5);
-    border-radius: 0px; /* Optional for rounded corners - looks a bit 2010 */
-    padding: 20px;
-    margin: 10px;
-    width: 120px;
-    height: 120px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for depth */
-    transition: background 0.5s ease; /* Smooth transition */
-    text-align: center; /* Center align the content */
-}
-
-.box3 div:hover {
-    text-decoration-line: underline; /* Underline on hover */
-}
-
-.box3 div i {
-    font-size: 1.5em; /* 50% bigger than the default size */
-}
-
-.box3 div b {
-    display: block; /* Ensure the bold text is on a new line */
-}
-
 
 
 .body-text {

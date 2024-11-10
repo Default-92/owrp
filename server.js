@@ -61,7 +61,14 @@ app.post('/api/posts', (req, res) => {
             return res.status(500).send('Internal Server Error');
         }
 
-        const posts = JSON.parse(data);
+        let posts;
+        try {
+            posts = JSON.parse(data);
+        } catch (parseError) {
+            console.error('Error parsing JSON:', parseError);
+            return res.status(500).send('Internal Server Error');
+        }
+
         posts.push(post);
 
         fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), (err) => {

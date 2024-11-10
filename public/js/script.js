@@ -62,3 +62,4 @@ document.addEventListener('DOMContentLoaded', async function() {
         alert('Failed to load posts. Please try again later.');
     }
 });
+

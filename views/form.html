@@ -1,18 +1,87 @@
 <!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONEWEB PORTAL: HOME</title>
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+      <a href="/">
+        <img src="https://cdn.glitch.global/86e5ca30-3d00-49a0-abb0-ff457d6391e7/oneweb-logo.png?v=1730726501633" alt="OneWeb-portal">
+      </a>
+      <h1><i class="fas fa-home"></i> ONEWEB PORTAL: HOME</h1>
+  </header>
+ 
+      <nav class="sidebar">
+          <div class="sidebar-text">
+              <p><i class="fas fa-bars"></i> Main menu</p>
+          </div>
+          <ul>
+              <li class="first-item"><a href="/"><i class="fas fa-home"></i><span>Home</span></a></li>
+              <li><a href="/info"><i class="fas fa-info-circle"></i><span>Info</span></a></li>
+              <li><a href="/grafana"><i class="fas fa-chart-line"></i><span>Grafana</span></a></li>
+              <li><a href="/incidents"><i class="fas fa-exclamation-triangle"></i><span>Incidents</span></a></li>
+              <li><a href="/spectralnet"><i class="fas fa-network-wired"></i><span>Spectralnet error</span></a></li>
+              <li><a href="/buc"><i class="fas fa-bug"></i><span>BUC error</span></a></li>
+              <li><a href="/network"><i class="fas fa-wifi"></i><span>Network outage</span></a></li>
+              <li><a href="/anomalies"><i class="fas fa-ticket-alt"></i><span>Ticket / Anomaly handling</span></a></li>
+              <li><a href="/procedures"><i class="fas fa-book"></i><span>Procedures</span></a></li>
+          </ul>
+      </nav>
+   <div class="content-wrapper">
+    <main>
+      <form id="blog-form">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required>
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required>
+          <label for="content">Content:</label>
+          <textarea id="content" name="content" required></textarea>
+          <label for="color">Frame Color:</label>
+          <select id="color" name="color" required>
+              <option value="#ff0000">Red</option>
+              <option value="#00ff00">Green</option>
+              <option value="#0000ff">Blue</option>
+              <option value="#ffff00">Yellow</option>
+              <option value="#ff00ff">Magenta</option>
+              <option value="#00ffff">Cyan</option>
+          </select>
+          <button type="submit">Submit</button>
+      </form>
+    </main>
+</div>
+    <body>
+
+    </body>
+       
+    <footer>
+        <p>&copy; 2024 - OneWeb Portal</p>
+    </footer>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Posts</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Blog Post Form</title>
+    <link rel="stylesheet" href="css/form.css">
 </head>
-<body>
+  <body>
     <header>
-        <h1>Blog Posts</h1>
+        <h1>Create a Blog Post</h1>
     </header>
     <main>
-        <div id="blog-container"></div>
+
     </main>
     <script src="/js/script.js"></script>
-</body>
+  </body>
 </html>
+
+

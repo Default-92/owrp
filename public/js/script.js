@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         data.forEach(post => {
             const postElement = document.createElement('div');
             postElement.className = 'blog-post';
-            postElement.style.border = `2px solid ${post.color}`;
+            postElement.style.border = `4px solid ${post.color}`;
 
             const titleElement = document.createElement('h3');
             titleElement.textContent = post.title;

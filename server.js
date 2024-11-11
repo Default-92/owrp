@@ -124,6 +124,11 @@ app.post('/api/posts', (req, res) => {
     });
 });
 
+
+
+
+
+
 app.put('/api/posts/:index', (req, res) => {
     const index = parseInt(req.params.index, 10);
     const updatedPost = req.body;

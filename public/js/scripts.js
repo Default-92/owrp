@@ -1,4 +1,4 @@
-document.getElementById('blog-form')?.addEventListener('submit', async function(event) {
+document.getElementById('blog-form').addEventListener('submit', async function(event) {
     event.preventDefault();
 
     const title = document.getElementById('title').value;

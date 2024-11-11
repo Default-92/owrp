@@ -123,3 +123,39 @@ app.post('/api/posts', (req, res) => {
         });
     });
 });
+
+app.put('/api/posts/:index', (req, res) => {
+    const index = parseInt(req.params.index, 10);
+    const updatedPost = req.body;
+    const postsFilePath = path.join(__dirname, 'data', 'posts.json');
+
+    fs.readFile(postsFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading posts file:', err);
+            return res.status(500).send('Internal Server Error');
+        }
+
+        let posts;
+        try {
+            posts = JSON.parse(data);
+        } catch (parseError) {
+            console.error('Error parsing JSON:', parseError);
+            return res.status(500).send('Internal Server Error');
+        }
+
+        if (index < 0 || index >= posts.length) {
+            return res.status(400).send('Invalid post index');
+        }
+
+        posts[index] = updatedPost;
+
+        fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), (err) => {
+            if (err) {
+                console.error('Error writing to posts file:', err);
+                return res.status(500).send('Internal Server Error');
+            }
+
+            res.status(200).send('Post updated');
+        });
+    });
+});

@@ -292,3 +292,28 @@ form button {
 form button:hover {
     background-color: #002a8a;
 }
+
+/* Add transitions to blog posts */
+.blog-post {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Add styles for the edit button */
+.blog-post .edit-button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.blog-post .edit-button:hover {
+    background-color: #e68900;
+}

@@ -268,7 +268,7 @@ form button:hover {
 .delete-button {
     background-color: #f44336; /* Red */
     color: white;
-    font-family: Segoe UI, sans-serif;
+    float: right;
 }
 
 .edit-button:hover {

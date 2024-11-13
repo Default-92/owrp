@@ -96,7 +96,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.getElementById('content').value = post.content;
         document.getElementById('color').value = post.color;
 
-        document.getElementById('blog-form').onsubmit = async function(event) {
+        // Remove existing onsubmit event listener
+        const form = document.getElementById('blog-form');
+        const newForm = form.cloneNode(true);
+        form.parentNode.replaceChild(newForm, form);
+
+        newForm.onsubmit = async function(event) {
             event.preventDefault();
 
             const updatedPost = {
@@ -145,4 +150,46 @@ document.addEventListener('DOMContentLoaded', async function() {
             alert('Failed to delete post. Please try again later.');
         }
     }
+
+    document.getElementById('blog-form').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const title = document.getElementById('title').value;
+        const date = document.getElementById('date').value;
+        const content = document.getElementById('content').value;
+        const color = document.getElementById('color').value;
+
+        const newPost = {
+            id: posts.length ? posts[posts.length - 1].id + 1 : 1, // Generate a new ID
+            title,
+            date,
+            content,
+            color
+        };
+
+        try {
+            const response = await fetch('/api/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newPost)
+            });
+
+            if (!response.ok) throw new Error('Network response was not ok');
+
+            alert('Post submitted successfully!');
+            document.getElementById('blog-form').reset();
+
+            // Add the new post to the posts array
+            posts.push(newPost);
+
+            // Update pagination controls and display posts
+            createPaginationControls();
+            displayPosts();
+        } catch (error) {
+            console.error('Error submitting post:', error);
+            alert('Failed to submit post. Please try again later.');
+        }
+    });
 });

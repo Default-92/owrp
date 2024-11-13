@@ -1,9 +1,9 @@
 [
   {
-    "title": "Allehelgensaften",
+    "title": "Ved endringer i poster burde de dukke opp i info-fanen.",
     "date": "2024-10-31",
     "content": "Heila",
-    "color": "#ff0000"
+    "color": "#ffff00"
   },
   {
     "title": "Nada",
@@ -16,5 +16,10 @@
     "date": "2024-11-17",
     "content": "joda",
     "color": "#ff0000"
+  }
+]r burde de dukke opp i info-fanen.",
+    "date": "2024-10-31",
+    "content": "Heila",
+    "color": "#ffff00"
   }
 ]

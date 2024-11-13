@@ -107,7 +107,15 @@ app.put('/api/posts/:index', (req, res) => {
 
         posts[index] = updatedPost;
 
-        fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), (err) => {
+        const updatedData = JSON.stringify(posts, null, 2);
+        try {
+            JSON.parse(updatedData); // Validate JSON
+        } catch (validationError) {
+            console.error('Error validating JSON:', validationError);
+            return res.status(500).send('Internal Server Error');
+        }
+
+        fs.writeFile(postsFilePath, updatedData, (err) => {
             if (err) {
                 console.error('Error writing to posts file:', err);
                 return res.status(500).send('Internal Server Error');
@@ -117,6 +125,9 @@ app.put('/api/posts/:index', (req, res) => {
         });
     });
 });
+
+
+
 
 
 const PORT = process.env.PORT || 3001;

@@ -1,25 +1,23 @@
 [
   {
-    "title": "Ved endringer i poster burde de dukke opp i info-fanen.",
+    "id": 1,
+    "title": "Det var en gang en nettside - med noen issues....",
     "date": "2024-10-31",
-    "content": "Heila",
-    "color": "#ffff00"
+    "content": "AKJWdlw",
+    "color": "#ff0000"
   },
   {
+    "id": 2,
     "title": "Nada",
     "date": "2024-11-17",
     "content": "Svada",
     "color": "#ff0000"
   },
   {
-    "title": "dada",
+    "id": 3,
+    "title": "Lalasd awda",
     "date": "2024-11-17",
-    "content": "joda",
+    "content": "neisa",
     "color": "#ff0000"
-  }
-]r burde de dukke opp i info-fanen.",
-    "date": "2024-10-31",
-    "content": "Heila",
-    "color": "#ffff00"
   }
 ]

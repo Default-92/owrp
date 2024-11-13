@@ -82,53 +82,6 @@ app.post('/api/posts', (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-    console.log(`Serveren kjører på port ${PORT}`);
-});
-
-
-
-
-app.post('/api/posts', (req, res) => {
-    const post = req.body;
-    const postsFilePath = path.join(__dirname, 'data', 'posts.json');
-
-    fs.readFile(postsFilePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading posts file:', err);
-            return res.status(500).send('Internal Server Error');
-        }
-
-        let posts;
-        try {
-            posts = JSON.parse(data);
-        } catch (parseError) {
-            console.error('Error parsing JSON:', parseError);
-            return res.status(500).send('Internal Server Error');
-        }
-
-        console.log('Current posts:', posts);
-        posts.push(post);
-        console.log('Updated posts:', posts);
-
-        fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), (err) => {
-            if (err) {
-                console.error('Error writing to posts file:', err);
-                return res.status(500).send('Internal Server Error');
-            }
-
-            console.log('Post successfully written to file');
-            res.status(201).send('Post created');
-        });
-    });
-});
-
-
-
-
-
-
 app.put('/api/posts/:index', (req, res) => {
     const index = parseInt(req.params.index, 10);
     const updatedPost = req.body;
@@ -164,3 +117,9 @@ app.put('/api/posts/:index', (req, res) => {
         });
     });
 });
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Serveren kjører på port ${PORT}`);
+});
+

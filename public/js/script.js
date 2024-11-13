@@ -123,9 +123,16 @@ document.addEventListener('DOMContentLoaded', async function() {
 
                 if (!response.ok) throw new Error('Network response was not ok');
 
+                // Update the post in the local array
+                const postIndex = posts.findIndex(p => p.id === id);
+                if (postIndex !== -1) {
+                    posts[postIndex] = updatedPost;
+                }
+
                 alert('Post updated successfully!');
                 document.getElementById('blog-form').reset();
-                location.reload(); // Reload the page to see the updated post
+                displayPosts(); // Update the displayed posts
+                createPaginationControls(); // Update pagination controls
             } catch (error) {
                 console.error('Error updating post:', error);
                 alert('Failed to update post. Please try again later.');
@@ -143,8 +150,12 @@ document.addEventListener('DOMContentLoaded', async function() {
 
             if (!response.ok) throw new Error('Network response was not ok');
 
+            // Remove the post from the local array
+            posts = posts.filter(post => post.id !== id);
+
             alert('Post deleted successfully!');
-            location.reload(); // Reload the page to see the updated list of posts
+            displayPosts(); // Update the displayed posts
+            createPaginationControls(); // Update pagination controls
         } catch (error) {
             console.error('Error deleting post:', error);
             alert('Failed to delete post. Please try again later.');

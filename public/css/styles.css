@@ -33,7 +33,7 @@ header img {
     width: 400px;
     max-width: 50%;
     max-height: 50%;
-    align: left;
+    align-items: left;
 }
 
 header h1 {
@@ -76,6 +76,10 @@ nav.sidebar ul li a:hover {
     background-color: #c94444;
 }
 
+.sidebar-text i {
+    margin-right: 10px; /* Space between the icon and the text */
+}
+
 nav.sidebar ul li a i {
     width: 20px; /* Fixed width for icons */
     text-align: center; /* Center the icons */
@@ -93,10 +97,6 @@ nav.sidebar ul li a span {
     border-radius: 0px;
     display: flex;
     align-items: center;
-}
-
-.sidebar-text i {
-    margin-right: 10px; /* Space between the icon and the text */
 }
 
 /* Content Wrapper Styles */
@@ -232,7 +232,7 @@ form input, form textarea, form select {
     padding: 0.5rem;
     margin-bottom: 1rem;
     border: 1px solid #cccccc;
-    border-radius: 4px;
+    border-radius: 0px;
 }
 
 /* Button Styles */
@@ -240,7 +240,7 @@ button {
     padding: 10px 15px;
     margin: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 0px;
     cursor: pointer;
     font-size: 16px;
 }
@@ -248,9 +248,9 @@ button {
 form button {
     background-color: #0036b1;
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 0px;
     cursor: pointer;
 }
 
@@ -268,6 +268,7 @@ form button:hover {
 .delete-button {
     background-color: #f44336; /* Red */
     color: white;
+    font-family: Segoe UI, sans-serif;
 }
 
 .edit-button:hover {

@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         const data = await response.json();
         console.log('Fetched data:', data);
 
+        // Sort posts by date
+        data.sort((a, b) => new Date(b.date) - new Date(a.date));
+
         const blogContainer = document.getElementById('blog-container');
         data.forEach((post, index) => {
             const postElement = document.createElement('div');

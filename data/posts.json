@@ -1,23 +1,20 @@
 [
   {
-    "id": 1,
     "title": "Det var en gang en nettside - med noen issues....",
     "date": "2024-10-31",
     "content": "AKJWdlw",
-    "color": "#ff0000"
+    "color": "#0000ff"
   },
   {
-    "id": 2,
-    "title": "Nada",
+    "title": "JOda",
     "date": "2024-11-17",
-    "content": "Svada",
-    "color": "#ff0000"
+    "content": "Det kan virke enda ",
+    "color": "#00ff00"
   },
   {
-    "id": 3,
-    "title": "Lalasd awda",
-    "date": "2024-11-17",
-    "content": "neisa",
-    "color": "#ff0000"
+    "title": "eller ikke ....",
+    "date": "2024-10-31",
+    "content": "AKJWdlw",
+    "color": "#ffff00"
   }
 ]

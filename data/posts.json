@@ -1,20 +1,9 @@
 [
   {
-    "title": "1",
-    "date": "2024-11-01",
-    "content": "1",
-    "color": "#ff0000"
-  },
-  {
-    "title": "JOda",
-    "date": "2024-11-17",
-    "content": "Det kan virke enda ",
-    "color": "#00ff00"
-  },
-  {
-    "title": "eller ikke ....",
-    "date": "2024-10-31",
-    "content": "AKJWdlw",
-    "color": "#ffff00"
+    "id": 3,
+    "title": "5",
+    "date": "2024-11-05",
+    "content": "5",
+    "color": "#ff00ff"
   }
 ]

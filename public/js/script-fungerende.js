@@ -34,16 +34,10 @@ document.addEventListener('DOMContentLoaded', async function() {
             editButton.textContent = 'Edit';
             editButton.addEventListener('click', () => editPost(post.id, post));
 
-            const deleteButton = document.createElement('button');
-            deleteButton.className = 'delete-button';
-            deleteButton.textContent = 'Delete';
-            deleteButton.addEventListener('click', () => deletePost(post.id));
-
             postElement.appendChild(titleElement);
             postElement.appendChild(dateElement);
             postElement.appendChild(contentElement);
             postElement.appendChild(editButton);
-            postElement.appendChild(deleteButton);
 
             blogContainer.appendChild(postElement);
         });
@@ -88,23 +82,5 @@ document.addEventListener('DOMContentLoaded', async function() {
                 alert('Failed to update post. Please try again later.');
             }
         };
-    }
-
-    async function deletePost(id) {
-        if (!confirm('Are you sure you want to delete this post?')) return;
-
-        try {
-            const response = await fetch(`/api/posts/${id}`, {
-                method: 'DELETE'
-            });
-
-            if (!response.ok) throw new Error('Network response was not ok');
-
-            alert('Post deleted successfully!');
-            location.reload(); // Reload the page to see the updated list of posts
-        } catch (error) {
-            console.error('Error deleting post:', error);
-            alert('Failed to delete post. Please try again later.');
-        }
     }
 });

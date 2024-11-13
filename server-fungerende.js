@@ -127,49 +127,6 @@ app.put('/api/posts/:id', (req, res) => {
     });
 });
 
-app.delete('/api/posts/:id', (req, res) => {
-    const id = parseInt(req.params.id, 10);
-    const postsFilePath = path.join(__dirname, 'data', 'posts.json');
-
-    fs.readFile(postsFilePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading posts file:', err);
-            return res.status(500).send('Internal Server Error');
-        }
-
-        let posts;
-        try {
-            posts = JSON.parse(data);
-        } catch (parseError) {
-            console.error('Error parsing JSON:', parseError);
-            return res.status(500).send('Internal Server Error');
-        }
-
-        const postIndex = posts.findIndex(post => post.id === id);
-        if (postIndex === -1) {
-            return res.status(400).send('Invalid post ID');
-        }
-
-        posts.splice(postIndex, 1); // Remove the post from the array
-
-        const updatedData = JSON.stringify(posts, null, 2);
-        try {
-            JSON.parse(updatedData); // Validate JSON
-        } catch (validationError) {
-            console.error('Error validating JSON:', validationError);
-            return res.status(500).send('Internal Server Error');
-        }
-
-        fs.writeFile(postsFilePath, updatedData, (err) => {
-            if (err) {
-                console.error('Error writing to posts file:', err);
-                return res.status(500).send('Internal Server Error');
-            }
-
-            res.status(200).send('Post deleted');
-        });
-    });
-});
 
 
 

@@ -1,19 +1,37 @@
 document.addEventListener('DOMContentLoaded', async function() {
     console.log("Hei! Nettsiden din er nå lastet.");
 
+    const postsPerPage = 5; // Number of posts per page
+    let currentPage = 1;
+    let posts = [];
+
     try {
         const response = await fetch('/data/posts.json');
         console.log('Fetch response:', response);
         if (!response.ok) throw new Error('Network response was not ok');
         
-        const data = await response.json();
-        console.log('Fetched data:', data);
+        posts = await response.json();
+        console.log('Fetched data:', posts);
 
         // Sort posts by date
-        data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
+        displayPosts();
+        createPaginationControls();
+    } catch (error) {
+        console.error('Error fetching posts:', error);
+        alert('Failed to load posts. Please try again later.');
+    }
+
+    function displayPosts() {
         const blogContainer = document.getElementById('blog-container');
-        data.forEach((post) => {
+        blogContainer.innerHTML = ''; // Clear previous posts
+
+        const start = (currentPage - 1) * postsPerPage;
+        const end = start + postsPerPage;
+        const paginatedPosts = posts.slice(start, end);
+
+        paginatedPosts.forEach((post) => {
             const postElement = document.createElement('div');
             postElement.className = 'blog-post';
             postElement.style.border = `2px solid ${post.color}`;
@@ -47,9 +65,29 @@ document.addEventListener('DOMContentLoaded', async function() {
 
             blogContainer.appendChild(postElement);
         });
-    } catch (error) {
-        console.error('Error fetching posts:', error);
-        alert('Failed to load posts. Please try again later.');
+    }
+
+    function createPaginationControls() {
+        const paginationContainer = document.getElementById('pagination-controls');
+        paginationContainer.innerHTML = ''; // Clear previous controls
+
+        const totalPages = Math.ceil(posts.length / postsPerPage);
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.textContent = i;
+            pageButton.className = 'page-button';
+            if (i === currentPage) {
+                pageButton.classList.add('active');
+            }
+            pageButton.addEventListener('click', () => {
+                currentPage = i;
+                displayPosts();
+                createPaginationControls();
+            });
+
+            paginationContainer.appendChild(pageButton);
+        }
     }
 
     function editPost(id, post) {

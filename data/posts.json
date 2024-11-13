@@ -1,9 +1,23 @@
 [
   {
+    "id": 1,
+    "title": "Det var en gang en nettside - med noen issues....",
+    "date": "2024-10-31",
+    "content": "<Fortsettelse følger>\n",
+    "color": "#0000ff"
+  },
+  {
+    "id": 2,
+    "title": "Nada",
+    "date": "2024-11-17",
+    "content": "Svada",
+    "color": "#ff0000"
+  },
+  {
     "id": 3,
-    "title": "5",
-    "date": "2024-11-05",
-    "content": "5",
-    "color": "#ff00ff"
+    "title": "Lalasd awda",
+    "date": "2024-11-17",
+    "content": "neisa",
+    "color": "#ff0000"
   }
 ]

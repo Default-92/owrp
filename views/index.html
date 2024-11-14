@@ -28,20 +28,20 @@
               <li><a href="/anomalies"><i class="fas fa-ticket-alt"></i><span>Ticket / Anomaly handling</span></a></li>
               <li><a href="/procedures"><i class="fas fa-book"></i><span>Procedures</span></a></li>
               <li><a href="/form"><i class="fas fa-chalkboard-teacher"></i><span>Service Manager</span></a></li>
-              <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            // Check if the user is logged in
-                            fetch('/api/check-login-status')
-                                .then(response => response.json())
-                                .then(data => {
-                                    if (!data.isLoggedIn) {
-                                        document.getElementById('logout-button').style.display = 'none';
-                                    }
-                                })
-                                .catch(error => console.error('Error checking login status:', error));
-                        });
-              </script>            
-              <li><a href="/logout" id="logout-button" class="logout-button">Logout</a></li>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                // Check if the user is logged in
+                                fetch('/api/check-login-status')
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.isLoggedIn) {
+                                            document.getElementById('logout-button').style.display = 'block';
+                                        }
+                                    })
+                                    .catch(error => console.error('Error checking login status:', error));
+                            });
+                        </script>
+              <li><a href="/logout" id="logout-button" class="logout-button" style="display: none;">Logout</a></li>
           </ul>
       </nav>
    <div class="content-wrapper">

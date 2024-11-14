@@ -1,13 +1,55 @@
 const express = require('express');
-const app = express();
+const session = require('express-session');
 const path = require('path');
 const fs = require('fs');
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json()); // To parse JSON bodies
+const app = express();
 
+// Hardcoded credentials
+const USERNAME = 'admin';
+const PASSWORD = 'smalahove';
+
+// Configure session middleware
+app.use(session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Middleware to protect routes
+function ensureAuthenticated(req, res, next) {
+    if (req.session.isAuthenticated) {
+        return next();
+    }
+    res.redirect('/login');
+}
+
+// Routes
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'login.html'));
+});
+
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+    if (username === USERNAME && password === PASSWORD) {
+        req.session.isAuthenticated = true;
+        res.redirect('/form');
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/login');
 });
 
 app.get('/info', (req, res) => {
@@ -46,7 +88,8 @@ app.get('/procedures', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'procedures.html'));
 });
 
-app.get('/form', (req, res) => {
+// Protect the form route
+app.get('/form', ensureAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'form.html'));
 });
 
@@ -108,15 +151,7 @@ app.put('/api/posts/:id', (req, res) => {
 
         posts[postIndex] = updatedPost;
 
-        const updatedData = JSON.stringify(posts, null, 2);
-        try {
-            JSON.parse(updatedData); // Validate JSON
-        } catch (validationError) {
-            console.error('Error validating JSON:', validationError);
-            return res.status(500).send('Internal Server Error');
-        }
-
-        fs.writeFile(postsFilePath, updatedData, (err) => {
+        fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), (err) => {
             if (err) {
                 console.error('Error writing to posts file:', err);
                 return res.status(500).send('Internal Server Error');
@@ -152,15 +187,7 @@ app.delete('/api/posts/:id', (req, res) => {
 
         posts.splice(postIndex, 1); // Remove the post from the array
 
-        const updatedData = JSON.stringify(posts, null, 2);
-        try {
-            JSON.parse(updatedData); // Validate JSON
-        } catch (validationError) {
-            console.error('Error validating JSON:', validationError);
-            return res.status(500).send('Internal Server Error');
-        }
-
-        fs.writeFile(postsFilePath, updatedData, (err) => {
+        fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), (err) => {
             if (err) {
                 console.error('Error writing to posts file:', err);
                 return res.status(500).send('Internal Server Error');
@@ -171,12 +198,7 @@ app.delete('/api/posts/:id', (req, res) => {
     });
 });
 
-
-
-
-
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-    console.log(`Serveren kjører på port ${PORT}`);
+// Start the server
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
 });
-

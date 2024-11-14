@@ -1,12 +1,15 @@
 /* General Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background-color: #f0f0f0;
+    color: #20163f;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    text-align: left;
 }
 
 /* Login Container */
@@ -56,4 +59,61 @@ form button:hover {
 h1 {
     margin-bottom: 1.5rem;
     color: #333333;
+}
+
+/* Sidebar Styles */
+nav.sidebar {
+    background-color: #0036b1;
+    color: white;
+    width: 200px;
+    position: fixed;
+    top: 0px;
+    left: 0; /* Align to the left side */
+    bottom: 0;
+    overflow: auto;
+}
+
+nav.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Remove margin to align with the top */
+}
+
+nav.sidebar ul li {
+    margin: 0.5rem 0;
+}
+
+nav.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+nav.sidebar ul li a:hover {
+    background-color: #c94444;
+}
+
+.sidebar-text i {
+    margin-right: 10px; /* Space between the icon and the text */
+}
+
+nav.sidebar ul li a i {
+    width: 20px; /* Fixed width for icons */
+    text-align: center; /* Center the icons */
+}
+
+nav.sidebar ul li a span {
+    margin-left: 10px; /* Adjust the spacing as needed */
+}
+
+.sidebar-text {
+    background-color: rgba(128, 128, 128, 0.5); /* Grey shade with opacity */
+    color: black;
+    font-size: 0.9rem; /* Smaller font size */
+    padding: 0px 20px; /* 0px above and below, 20px left and right */
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
 }

@@ -37,6 +37,10 @@ app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'login.html'));
 });
 
+app.get('/api/check-login-status', (req, res) => {
+    res.json({ isLoggedIn: !!req.session.isAuthenticated });
+});
+
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
     if (username === USERNAME && password === PASSWORD) {

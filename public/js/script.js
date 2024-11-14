@@ -97,8 +97,9 @@ function editPost(id, post) {
     document.getElementById('content').value = post.content;
     document.getElementById('color').value = post.color;
 
-    // Remove existing onsubmit event listener
     const form = document.getElementById('blog-form');
+
+    // Remove existing onsubmit event listener
     const newForm = form.cloneNode(true);
     form.parentNode.replaceChild(newForm, form);
 
@@ -138,12 +139,65 @@ function editPost(id, post) {
             document.getElementById('blog-form').reset();
             displayPosts(); // Update the displayed posts
             createPaginationControls(); // Update pagination controls
+
+            // Reset the form's onsubmit event to the default create functionality
+            newForm.onsubmit = createPost;
         } catch (error) {
             console.error('Error updating post:', error);
             alert('Failed to update post. Please try again later.');
         }
     };
 }
+
+async function createPost(event) {
+    event.preventDefault();
+
+    const title = document.getElementById('title').value;
+    const date = document.getElementById('date').value;
+    const content = document.getElementById('content').value;
+    const color = document.getElementById('color').value;
+
+    const newId = posts.length ? Math.max(...posts.map(post => post.id)) + 1 : 1;
+
+    const newPost = {
+        id: newId,
+        title,
+        date,
+        content,
+        color
+    };
+
+    console.log('New post:', newPost); // Debugging log
+
+    try {
+        const response = await fetch('/api/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newPost)
+        });
+
+        if (!response.ok) throw new Error('Network response was not ok');
+
+        alert('Post submitted successfully!');
+        document.getElementById('blog-form').reset();
+
+        posts.push(newPost);
+
+        console.log('Posts after adding new post:', posts); // Debugging log
+
+        createPaginationControls();
+        displayPosts();
+    } catch (error) {
+        console.error('Error submitting post:', error);
+        alert('Failed to submit post. Please try again later.');
+    }
+}
+
+// Set the default form submission to createPost
+document.getElementById('blog-form').addEventListener('submit', createPost);
+
 
 
     async function deletePost(id) {
@@ -215,4 +269,5 @@ document.getElementById('blog-form').addEventListener('submit', async function(e
         console.error('Error submitting post:', error);
         alert('Failed to submit post. Please try again later.');
     }
+  });
 });

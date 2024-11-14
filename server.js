@@ -66,6 +66,14 @@ app.get('/info', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'info.html'));
 });
 
+app.get('/ssh', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'ssh.html'));
+});
+
+app.get('/nonssh', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'nonssh.html'));
+});
+
 app.get('/data/posts.json', (req, res) => {
     res.sendFile(path.join(__dirname, 'data', 'posts.json'));
 });

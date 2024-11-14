@@ -8,10 +8,10 @@
   },
   {
     "id": 3,
-    "title": "14",
+    "title": "Relevant information",
     "date": "2024-11-29",
-    "content": "14",
-    "color": "#ff0000"
+    "content": "N/A",
+    "color": "#0000ff"
   },
   {
     "id": 4,
@@ -22,9 +22,16 @@
   },
   {
     "id": 5,
-    "title": "12",
+    "title": "1",
     "date": "2024-11-12",
-    "content": "12",
+    "content": "1",
     "color": "#ff0000"
+  },
+  {
+    "id": 6,
+    "title": "Test 2",
+    "date": "2024-11-15",
+    "content": "TestTest",
+    "color": "#ff00ff"
   }
 ]

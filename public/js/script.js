@@ -90,55 +90,61 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 
-    function editPost(id, post) {
-        document.getElementById('title').value = post.title;
-        document.getElementById('date').value = post.date;
-        document.getElementById('content').value = post.content;
-        document.getElementById('color').value = post.color;
+function editPost(id, post) {
+    console.log('Editing post:', post); // Debugging log
+    document.getElementById('title').value = post.title;
+    document.getElementById('date').value = post.date;
+    document.getElementById('content').value = post.content;
+    document.getElementById('color').value = post.color;
 
-        // Remove existing onsubmit event listener
-        const form = document.getElementById('blog-form');
-        const newForm = form.cloneNode(true);
-        form.parentNode.replaceChild(newForm, form);
+    // Remove existing onsubmit event listener
+    const form = document.getElementById('blog-form');
+    const newForm = form.cloneNode(true);
+    form.parentNode.replaceChild(newForm, form);
 
-        newForm.onsubmit = async function(event) {
-            event.preventDefault();
+    newForm.onsubmit = async function(event) {
+        event.preventDefault();
 
-            const updatedPost = {
-                id: post.id,
-                title: document.getElementById('title').value,
-                date: document.getElementById('date').value,
-                content: document.getElementById('content').value,
-                color: document.getElementById('color').value
-            };
-
-            try {
-                const response = await fetch(`/api/posts/${id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(updatedPost)
-                });
-
-                if (!response.ok) throw new Error('Network response was not ok');
-
-                // Update the post in the local array
-                const postIndex = posts.findIndex(p => p.id === id);
-                if (postIndex !== -1) {
-                    posts[postIndex] = updatedPost;
-                }
-
-                alert('Post updated successfully!');
-                document.getElementById('blog-form').reset();
-                displayPosts(); // Update the displayed posts
-                createPaginationControls(); // Update pagination controls
-            } catch (error) {
-                console.error('Error updating post:', error);
-                alert('Failed to update post. Please try again later.');
-            }
+        const updatedPost = {
+            id: post.id,
+            title: document.getElementById('title').value,
+            date: document.getElementById('date').value,
+            content: document.getElementById('content').value,
+            color: document.getElementById('color').value
         };
-    }
+
+        console.log('Updated post:', updatedPost); // Debugging log
+
+        try {
+            const response = await fetch(`/api/posts/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedPost)
+            });
+
+            if (!response.ok) throw new Error('Network response was not ok');
+
+            // Update the post in the local array
+            const postIndex = posts.findIndex(p => p.id === id);
+            if (postIndex !== -1) {
+                posts[postIndex] = updatedPost;
+            }
+
+            console.log('Posts after update:', posts); // Debugging log
+
+            alert('Post updated successfully!');
+            document.getElementById('blog-form').reset();
+            displayPosts(); // Update the displayed posts
+            createPaginationControls(); // Update pagination controls
+        } catch (error) {
+            console.error('Error updating post:', error);
+            alert('Failed to update post. Please try again later.');
+        }
+    };
+}
+
 
     async function deletePost(id) {
         if (!confirm('Are you sure you want to delete this post?')) return;
@@ -162,45 +168,51 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 
-    document.getElementById('blog-form').addEventListener('submit', async function(event) {
-        event.preventDefault();
+document.getElementById('blog-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
 
-        const title = document.getElementById('title').value;
-        const date = document.getElementById('date').value;
-        const content = document.getElementById('content').value;
-        const color = document.getElementById('color').value;
+    const title = document.getElementById('title').value;
+    const date = document.getElementById('date').value;
+    const content = document.getElementById('content').value;
+    const color = document.getElementById('color').value;
 
-        const newPost = {
-            id: posts.length ? posts[posts.length - 1].id + 1 : 1, // Generate a new ID
-            title,
-            date,
-            content,
-            color
-        };
+    // Generate a unique ID
+    const newId = posts.length ? Math.max(...posts.map(post => post.id)) + 1 : 1;
 
-        try {
-            const response = await fetch('/api/posts', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newPost)
-            });
+    const newPost = {
+        id: newId,
+        title,
+        date,
+        content,
+        color
+    };
 
-            if (!response.ok) throw new Error('Network response was not ok');
+    console.log('New post:', newPost); // Debugging log
 
-            alert('Post submitted successfully!');
-            document.getElementById('blog-form').reset();
+    try {
+        const response = await fetch('/api/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newPost)
+        });
 
-            // Add the new post to the posts array
-            posts.push(newPost);
+        if (!response.ok) throw new Error('Network response was not ok');
 
-            // Update pagination controls and display posts
-            createPaginationControls();
-            displayPosts();
-        } catch (error) {
-            console.error('Error submitting post:', error);
-            alert('Failed to submit post. Please try again later.');
-        }
-    });
+        alert('Post submitted successfully!');
+        document.getElementById('blog-form').reset();
+
+        // Add the new post to the posts array
+        posts.push(newPost);
+
+        console.log('Posts after adding new post:', posts); // Debugging log
+
+        // Update pagination controls and display posts
+        createPaginationControls();
+        displayPosts();
+    } catch (error) {
+        console.error('Error submitting post:', error);
+        alert('Failed to submit post. Please try again later.');
+    }
 });

@@ -48,9 +48,15 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/logout', (req, res) => {
-    req.session.destroy();
-    res.redirect('/login');
+    req.session.destroy((err) => {
+        if (err) {
+            return res.redirect('/');
+        }
+        res.clearCookie('connect.sid');
+        res.redirect('/');
+    });
 });
+
 
 app.get('/info', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'info.html'));
